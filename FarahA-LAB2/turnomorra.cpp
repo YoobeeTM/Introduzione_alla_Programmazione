@@ -17,7 +17,7 @@ int main()
 
     if ((m1=='s' && m2=='f') || (m1=='c' && m2=='s') || (m1=='f' && m2=='c'))
     {
-        cout<<"Ha vinto il Giocatore 1!";
+        cout<<"Ha vinto il Giocatore 1!"<<endl;
     }
     
     else if ((m2=='s' && m1=='f') || (m2=='c' && m1=='s') || (m2=='f' && m1=='c'))
