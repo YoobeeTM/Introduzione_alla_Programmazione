@@ -8,8 +8,8 @@ char mossa_pc()
     srand(time(NULL));
     int m2 = (rand()%3);
     if (m2==0) m2='f';
-    if (m2==0) m2='c';
-    if (m2==0) m2='s';
+    if (m2==1) m2='c';
+    if (m2==2) m2='s';
     return m2;
 }
 void partita()
@@ -30,13 +30,13 @@ void partita()
         cout<<"Ha vinto il Giocatore!"<<endl;
     }
     
-    else if ((m2=='s' && m1=='f') || (m2=='c' && m1=='s') || (m2=='f' && m1=='c'))
+    if ((m2=='s' && m1=='f') || (m2=='c' && m1=='s') || (m2=='f' && m1=='c'))
     {
         cout<<"Il PC ha scelto la mossa: "<<m2<<endl; 
         cout<<"Ha vinto il PC!"<<endl;
     }
 
-    else if (m1==m2)
+    if (m1==m2)
     {
         cout<<"Il PC ha scelto la mossa: "<<m2<<endl; 
         cout<<"Pareggio!"<<endl;
@@ -45,12 +45,15 @@ void partita()
 int main()
 {
     partita();
-    char choice='s';
+    char choice;
+    cout<<"Vuoi fare un altra partita? In caso affermativo inserisci 'S': ";
+    cin>>choice;
     while (choice=='s' || choice=='S')
     {
+        partita();
         cout<<"Vuoi fare un altra partita? In caso affermativo inserisci 'S': ";
         cin>>choice;
-        partita();
     }
+    cout<<"Grazie per aver giocato!"<<endl;
     return 0;
 }
