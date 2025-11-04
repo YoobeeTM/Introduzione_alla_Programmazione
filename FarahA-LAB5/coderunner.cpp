@@ -35,4 +35,5 @@ int main ()
     }
     cout<<"maxVal= "<<maxVal<<endl;
     cout<<"maxCount= "<<maxCount<<endl;
+    return 0;
 }
