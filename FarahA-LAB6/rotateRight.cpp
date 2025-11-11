@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
-#include <ctime>
 using namespace std;
 
 int main() {
@@ -18,7 +16,7 @@ int main() {
     for (size_t i = 0; i < d.size(); i++) {
         cout << d[i] << " ";
     }
-    cout << "]" << endl;
+    cout << "]";
 
     // rotate right (spostamento a destra)
     int last = d.back();
@@ -28,7 +26,7 @@ int main() {
     d[0] = last;
 
     // stampa vector dopo la rotazione
-    cout << "[ ";
+    cout << " ---> [ ";
     for (size_t i = 0; i < d.size(); i++) {
         cout << d[i] << " ";
     }

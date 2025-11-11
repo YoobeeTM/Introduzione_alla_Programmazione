@@ -7,8 +7,6 @@ int main() {
     vector<int> v(D);
 
     srand(time(NULL));
-    
-    cout << "Inserisci " << D << " numeri interi: ";
     for (int i = 0; i < D; i++) 
     {
         int x = (rand() % 20);
@@ -20,7 +18,7 @@ int main() {
     {
         cout << v[i] << " ";
     }
-    cout << "] " << endl;
+    cout << "] ";
 
     // Traslazione verso sinistra
     for (int i = 0; i < D - 1; i++) 
