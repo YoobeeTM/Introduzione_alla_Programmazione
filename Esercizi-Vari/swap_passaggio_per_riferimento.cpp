@@ -5,7 +5,9 @@ using namespace std;
 void swap (int& x, int& y)
 {
     int tmp ;
-    tmp=x; x=y; y=tmp;
+    tmp=x; 
+    x=y; 
+    y=tmp;
 }
 
 int main ()

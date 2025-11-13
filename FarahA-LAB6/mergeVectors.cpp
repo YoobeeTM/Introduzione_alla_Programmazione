@@ -110,7 +110,7 @@ int main()
         }
     }
 
-    cout << "Vector d (s1 + s2 da primo valore maggiore di s1) = { ";
+    cout << "Vector d = { ";
     for (size_t i = 0; i < d.size(); i++)
     {
         cout << d[i];
