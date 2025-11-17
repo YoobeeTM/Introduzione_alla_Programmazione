@@ -6,23 +6,22 @@ using namespace std;
 int area(int length, int width)
 {
     string err = "parametro con valore non positivo";
-    if (0>= length || 0>= width) throw err;
-    return length*width;
+    if (0 >= length || 0 >= width) throw err;
+    return length * width;
 }
 
 int main()
 {
-    int z, y;
+    int x, y;
     try
     {
-        cout<<"Inserisci lunghezza e altezza el rettangolo";
-        cin>>x>>y;
-        cout<<"L'area del rettangolo é: "<<area(x,y);
+        cout << "Inserisci lunghezza e altezza del rettangolo";
+        cin >> x >> y;
+        cout << "L'area del rettangolo è: " << area(x, y);
     }
-
     catch (string& err)
     {
-        cout<<err;
-        cerr<<"oops! Bad area calculation - fix program\n";
+        cout << err;
+        cerr << "oops! Bad area calculation - fix program\n";
     }
 }
