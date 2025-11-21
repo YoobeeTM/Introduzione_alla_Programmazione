@@ -1,0 +1,83 @@
+STREAM 
+- sequenze di caratteri
+operazioni sugli stream:
+- Input: leggere (e interpretare) input formattato
+- Output: formattare (trasformare in rappresentazione ASCII) e scrivere informazioni
+ESEMPIO: cin e cout sono stream
+
+Le operazioni sono strettamente SEQUENZIALI
+
+File (ASCII):
+- Sono contenitori di informazione (caratteri) su disco
+- Si possono asscociare a TREAM:
+1) Apertura file (associa una variabile STREAM a un nome file)
+   in input o(xor) in output
+
+2) Operazioni di lettura (input) o scrittura (output) SEQUENZIALE
+
+3) Chiusura dello stream: "sgancia" la variabile dal file
+
+Uno stream è cone un "tubo"
+
+Input:
+        -------------
+file I -->            --> programma   
+        -------------
+
+Output
+        -------------
+file O <--          <-- programma
+        -------------
+- Il "tubo" è chiamato BUFFER, ovvero un deposito temporaneo di informazioni in attesa di essere
+- Le informazioni rimangono nel buffer fino a quando quest'ultimo non si riempie
+- Per mandare tutte le informazioni sul disco bisogna "flushare" con un a capo (\n)
+- Il cursore di un file INPUT è come una "freccetta" che si sposta solo avanti per leggere il file mano a mano
+- Il cursore di un file OUTPUT è come una "freccetta" che si sposta solo avanti per scrivere il file mano a mano
+
+---------SINTASSI:---------
+- I file sono contenuti della libreria std (using namespace std;)
+#include <iostream> per usare cin e cout
+#include <fstream> per usare i file
+
+Per usare un file:
+- Dichiarazione di una variabile stream che può essere di du tipi
+1) istream fi; // istream: tipo, fi: nome della variabile
+2) ofstream fo; // ofstream: tipo, fo: nome della variabile
+
+- Apertura del file:
+1) fi.open(nomefile) // nomefile: una stringa o un literal "..."
+1) fo.open(nomefile)
+
+ESEMPIO:
+string = "myFile.txt"
+oppure
+fi.open(s);
+oppure
+fi.open("myFile");
+
+In alternativa: (dichiarazioine e apertura insieme)
+istream fi("myFile.txt");
+ostream fi("myFile.txt");
+
+Per scrivere su un ostrea:
+1) fi >> variabili // variabili del tipo previsto dal programma concatenate mediante ">>" (operatore di estrazione)
+2) fo << output formattato // output formattato: sequenza di cose stampabili come stringhe, numeri, caratteri, ecc.. 
+                                                 concatenate mediante "<<" (operazione di inserzione)
+
+ERRORI:
+
+string s= "myFile";
+istream fi(s);
+if (!fi) // verifivo se fi è in stato di errore
+{
+     cout<<"Il file "<<s<<" non è accessibile!";
+     return;
+}
+
+Fine file(di input):
+fi.eof() // funzione (endo of file) che serve a sapere se siamo alla fine del file 
+            è una funzione bool che vale true dopo che abbiamo tentato di leggere a file finito
+
+Chiusura file:
+1) fi.close();
+2) fo.close();
