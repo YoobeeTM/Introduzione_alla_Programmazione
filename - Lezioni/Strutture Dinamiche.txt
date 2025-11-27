@@ -1,0 +1,16 @@
+1) "Mattoni" di base: Puntatori
+2) Array Dinamici (e statici)
+3) Liste
+
+------Organizzazione della mmoria del programma-------
+      HEAP
+       |
+      \ /
+    LIBRERIA
+       ^
+       |
+    STACK
+VARIABILI GLOBALI
+    CODICE
+
+-Sullo stack si mettono le variabili temporanee (automatiche) che appartengono alle varie funzioni/blocchi

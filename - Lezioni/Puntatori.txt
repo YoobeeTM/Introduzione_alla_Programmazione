@@ -1,0 +1,53 @@
+-I puntatori sono variabili il cuoi contenuto sono indirizzi di memoria.
+-Sono "celle" di memoria che contengono indirizzi di altre celle di memoria.
+-I tipi puntatore sono puntatori a dati di un tipo determinato (ex: puntatori a int, puntatori a char,..., puntatori a T)
+
+---SINTASSI---
+Dichiarazione di variabile puntatore:
+<tipo> * <nome variabile>; (ex: int * p;)
+
+-la costante nullptr definisce il valore di un puntatore nullo sse non unta da nessuna parte
+-Operatore di deferenziazione *:
+se p è di tipo p, *p è la cella puntata da p (ammeso che esista)
+*p è sia Rvalue che Lalue
+
+-Operatore di referenziazione &:
+se v è una variabile di tipo T, &v è il suo indirizzo ed è di tipo T* (T* è un puntatore a T)
+&v è solo Rvalue
+
+ESEMPIO:
+int main()
+{
+    int n=10;
+    int k=5;
+    int *p=nullptr;
+    p=&n;           //*p diventa un alias di n
+    *p=20;          //assegna 20 alla variabile n
+    p=&k;           //*p diventa un alias di k
+    *p=2;           //assegna 2 alla variabile k
+    n=*p+k;         //
+    *p=(*p)*n       //k diventa 8 (2*4)
+}
+
+-TUTTO QUESTO STA SULLO STACK EE è TUTTO STATICO-
+
+---ALLOCAZIONE DINAMICA SINGOLA---
+-Celle singole
+Ex:
+int *p;
+p=new int;      //"new" significa chiedere di ottenere sullo HEAP memoria per una variabile  del tipo  specificato.
+                -Nel caso specifico: ovvero crea sullo heap una locazione per una variabile intera e 
+                il suo indirizzo assegnalo al puntatore p.
+
+---DEALLOCAZIONE DI UNA VARIABILE SINGOLA---
+delete p;       //restituisci allo spazio libero sullo heap la locaizone puntata da p
+p=nulltpr;
+
+---ALLOCAZIONE DINAMICA MULTIPLA---
+-Celle multiple:
+ex:
+int *p;
+p=new int[5];   //crea una sequenza di celle nello HEAP dove p punta solo alla prima
+
+---DEALLOCAZIONE DI UNA VARIABILE SINGOLA---
+delete[] p;       //cancella tutto il blocco di memoria puntata da p
