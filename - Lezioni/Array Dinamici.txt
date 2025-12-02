@@ -1,0 +1,86 @@
+=====ARRAY DINAMICI=====
+-puntatori (a cui aggancia l'array)
+-"new" per allocare lo spazio (collezione di celle)
+-[] per accedere alle celle
+
+Implementazione struct di array dinamici di int:
+
+struct myArray
+{
+    int*a;
+    int size;       //quante celle stiamo usando
+    int capacity;   //quante celle abbiamo allocato
+}
+
+myArray A;
+
+void init(myArray &A)
+{
+    A.a=nullptr;
+    A.size=A.capacity=0;
+}
+
+void Resize (myArray &A, int c)
+{
+    if (A.a!=nullptr)
+    {
+        delete[]A.a;
+    }
+
+    A.a=new int[c]:
+    A.capacity=c;
+    A.size=0;
+}
+
+int PushBack (myArray &A, int x)
+{
+    if (A.size==A.capacity)
+    {
+        return 1;       //errore capacità
+    }
+
+    A.a[A.size]=x;
+    A.size++;
+}
+
+int At (myArray A, int i)
+{
+    if (i<0 || i>=A.size)  trow 100;    //solleva un eccezione e invia un errore "out of bound"
+    
+    return A.a[i];
+}
+
+void Assign (myArray &A, int i, int x;)
+{
+    if (i<0 || i>=A.size)  trow 100;
+    A.a[i]=x
+}
+
+=====COPIA SUPERFICIALE====
+-Si aggancia il puntatore della destinazione dello stesso posto del puntatore della sorgente
+ex:
+
+myArray A, B;
+...
+//riempio A
+B=A; 
+
+-B diventa un alias di A
+
+=====COPIA PROFONDA====
+-S crea una copia anche della parte dnamica
+
+ex:
+myArray Copy(myArray A)
+{
+    myArray B;
+    B.size=A.size;
+    B.capacity=A.capacity;
+    B.a new int[A.capacity];
+
+    for (int i0; i<A.size; i++)
+    {
+        B.a[i]= A.a[i];
+    }
+    return B;
+}

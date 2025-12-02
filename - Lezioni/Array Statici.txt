@@ -1,0 +1,32 @@
+-non usano allocazione dinamica
+-sono allocati sullo stack
+-vengono definiti con una dimensione costante all'inizio del programma
+-non si possono espandere dopo la definizione
+
+Sono costruttori di collezioni di variabili dello stesso tipo, ma di dimensione fissata
+nel codice del programma.
+
+====SINTASSI====
+<tipo> <nomeArray> [<dimensione>];
+
+ex:
+double v[3];        //sullo stack vengono allocate 3 caselle di tipo double che si chiamano v[0], v[1], v[2]
+
+-Il nome dell'array è una costante di tipo puntatore, che punta alla prima cella
+
+
+void myFunct (int A[], int n)   //A è un array di n int
+{
+    if (n<2) return;
+    A[n-2]=10;
+}
+
+int main()
+{
+    int v[10];
+    for (int i=0; i<10; i++)
+    {
+        v[i]=i;
+    }
+    myFunct(v,10)
+}
