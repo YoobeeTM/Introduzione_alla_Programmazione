@@ -1,0 +1,110 @@
+Rispetto a Vector/array:
+contro-->non c'è l'accesso diretto
+pro--> si fanno inserimenti o cancellazioni in fondo, cima o mezzo, tutti in tempo costante o(n)
+
+Le liste sono fatte di celle (elemento base).
+
+-Lista semplice:
+Ogni cella è collegata alla cella successiva tramite un puntatore.
+L'ultima clla ha un puntatore nullo (nullptr)
+La prima cella è acccessibile anch'essa da un puntatore
+
+Tipo per la cella per la lista semplice:
+
+struct cell 
+{
+    T info;          \\T(tipo noto)
+    cell * next;     
+};
+
+Tipo per la testa della lista:
+
+typedef cell* list;
+
+-Uso tipico:
+La testa della lista (list l) è allocata sullo STACK
+Le celle della lista vengono allocate dinamicamente dal programma sullo HEAP
+
+
+
+list init()
+{
+    return nullptr;
+}
+
+l=init();       //equivalente a l=nullptr;
+
+====INSERIMENTO IN TESTA====
+void push_front(list & l, info x)
+{
+    cell * aux = new cell;      //alloco cella
+    aux->info = x;              //oppure (*aux).info = x  (copio x nel campo info)
+    aux->next = l;              //copio l nel campo next
+    l=aux;                      //copio l'indirizzo della nuova cella in
+}
+
+====CANCELLAZIONE IN TESTA====
+void pop_front(list & l)
+{
+    if (l==nullptr) return;     //se la cella è vuota non ho nulla da cancellare, quindi esco
+    cell* aux = l;
+    l = l->next;
+    delete aux;
+}
+
+====SCANSIONE====
+Idea di scansione per tutte le sequenze:
+1)parto dal primo elemento
+2)accedo a tutti gli elementi in sequenza
+3)gli elaboro 
+4)mi fermo alla fine
+(con i vector faccio un ciclo for)
+
+void scan(list l)
+{
+    cell* cur = l;
+    while (cur != nullptr)
+    {
+        do_something(cur->info)
+        cur=cur->next;
+    }
+}
+
+====ACCESSSO ALLA CELLA (non è diretto)====
+info at(list l, int i)
+{
+    if (i<0) trow ERR_out_of_bound;     //se il puntatore è negativo lancio un eccezione
+    cell* cur = l;
+    int count=0;
+    while (cur != nullptr && count<i)
+    {
+        cur=cur->next;
+        count ++;
+    }
+
+    if (cur==nullpntr) trow ERR_out_of_bound;
+
+    return cur->info;
+}
+
+====INSERIMENTO ALLA POSIZIONE i-esima====
+
+void insert(list &l; T x, int i)
+{
+    if (i<0) trow ERR_out_of_bound;
+    cell* prev;
+    cell* cur = l;
+    cell* aux = new cell;
+    int count=0;
+    while (cur != nullptr && count<i)
+    {
+        prev =cur;
+        cur=cur->next;
+        count ++;
+    }
+    if (cur==nullpntr) trow ERR_out_of_bound;
+
+    aux->info = x;
+    aux->next= cur;
+    prev->next =aux;
+}
