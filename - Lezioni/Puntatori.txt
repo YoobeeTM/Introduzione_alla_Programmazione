@@ -29,7 +29,7 @@ int main()
     *p=(*p)*n       //k diventa 8 (2*4)
 }
 
--TUTTO QUESTO STA SULLO STACK EE è TUTTO STATICO-
+-TUTTO QUESTO STA SULLO STACK ED è TUTTO STATICO-
 
 ---ALLOCAZIONE DINAMICA SINGOLA---
 -Celle singole
