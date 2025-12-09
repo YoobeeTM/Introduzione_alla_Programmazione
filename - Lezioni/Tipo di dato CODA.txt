@@ -1,0 +1,57 @@
+===TIPO DI DATO CODA (QUEUE O FIFO)===
+-Collezione di elementi omogenei (tipo T)
+con le seguenti 5 operazioni:
+1)Init: fornisce una CODA vuota
+2)IsEmpty: dice se la CODA è vuota (funzione bool)
+3)Enqueue inserisce un elemento in fondo ALLA CODA
+4)First: restituisce il valore dell'elemento in cima alla CODA
+5)Dequeue: elimina l'elemento in cima alla CODA
+
+per aggiungere un elemento alla in fondo alla CODA bisogna cambiare list:
+
+struct list
+{
+    cell*first;
+    cell* last;
+};
+
+void Init()
+{
+    list aux;
+    aux.first= aux.last= nullprt;
+    return aux;
+}
+
+bool IsEmpty(list l)
+{
+    return (l.first==nullptr);
+}
+
+T First(list l)
+{
+    if (l.first==nullprt) throw ERR...;
+    return l.first->info;
+}
+
+void Enqueue(list &l, T x)
+{
+    cell* aux= new cell;
+    aux->info=x;
+    aux->next=nullptr;
+    
+    if(l.fist==nullptr)
+    {
+        l.fist=l.last=aux;
+    }
+
+    else
+    {
+        l.last->next =aux;
+        l.last=aux;
+    }
+}
+
+void deueue (list l)
+{
+    
+}

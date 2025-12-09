@@ -1,0 +1,11 @@
+===TIPO DI DATO STACK (CODA LIFO)===
+
+-Collezione di elementi omogenei (tipo T)
+con le seguenti 5 operazioni:
+1)Init: fornisce uno STACK vuoto
+2)IsEmpty: dice se uno STACK è vuoto (funzione bool)
+3)push inserisce un elemento in cima allo STACK
+4)top: restituisce il valore dell'elemento in cima allo STACK
+5)pop: elimina l'elemento in cima allo STACK
+
+Esercizio: IMPLEMENTARE STACK CON LISTE SEMPLICI

@@ -98,13 +98,50 @@ void insert(list &l; T x, int i)
     int count=0;
     while (cur != nullptr && count<i)
     {
-        prev =cur;
-        cur=cur->next;
+        prev = cur;
+        cur = cur->next;
         count ++;
     }
     if (cur==nullpntr) trow ERR_out_of_bound;
 
     aux->info = x;
-    aux->next= cur;
-    prev->next =aux;
+    aux->next = cur;
+    if (cur==l)
+    {
+        l = aux;
+    }
+
+    else 
+    {
+        prev->next = aux;
+    }
 }
+
+===INSERIMENTO IN ORDINE===
+void InsertOrd (list &l, T x)
+{
+    if (i<0) trow ERR_out_of_bound;
+    cell* prev;
+    cell* cur = l;
+    cell* aux = new cell;
+    aux->info = x;
+    while (cur != nullptr && cur->info < x)
+    {
+        prev = cur;
+        cur = cur->next;
+    }
+    aux->next = cur;
+    if (cur==l)
+    {
+        l = aux;
+    }
+
+    else 
+    {
+        prev->next = aux;
+    }
+}
+
+
+==========Lista doppiamente collegata:==========
+-vantaggio: scorrimento delle celle sia da una parte che dall'altra
