@@ -1,0 +1,94 @@
+Ricorsione:
+Funzione ricorsiva: funzione che chiama se stessa
+
+<tipo> f(<parametrii>)
+{
+        f(<atri parametrii>) // f deve contenere istruzioni che NON la fanno passare da lei in "certi casi"
+}
+
+Idea di base:
+Problemi P su un imput I di cardinalità n:
+1)(base) so risolvere P su n sufficentemente piccolo (1, 2, 3 ..)
+2)(passo induttivo) so combinare una soluzione su n-k elementi con quella su k elementi per ottenere quella su n elementi
+allora poso scrivere una funzione che:
+-se n<=k fornisce la soluzione base
+-altrimenti scompongo I in sottoinsiemi di cardinalità <n
+e 1) invoco f sui sottoinsiemi
+  2) metto insieme le soluzioni ottenute
+
+Induzione aritmetica:
+base: se so f(n) funzioni per n piccolo
+
+passo: se assunto che f(k) per k<n funzioni, dimostro che vale P(n) allora
+f vale per qualunque n
+
+if n è sufficientemente piccolo 
+{
+    risolvi P dirrettamente (e dai la soluzione -> f termina)
+}
+
+else
+{
+    suddividi I (in parti di cardinalità <n)
+    risolvi ogni sottoparte ricorsivamente (chiamando f)
+    combina le soluzioni
+}
+
+
+====CALCOLO DEL FATTORIALE====
+int fatt_iterativo (int n)
+{
+    if (n<o) trow ERR;
+    if (n=0) return 1;
+
+    int acc=1;
+    for (int i=2; i<n; i++)
+    {
+        acc=acc*i
+    }
+    return acc;
+}
+
+Notiamo che :
+n! = n*(n-1)!
+
+int fatt_ricorsivo (int n)
+{
+    if (n<o) trow ERR;
+
+    if (n=0) return 1;
+
+    else 
+    {
+        return n*fatt_ricorsivo(n-1);
+    }
+}
+
+====COEFFICIENTI BINOMIALI====
+(n)
+(k) = n! / (k! * (n-k)!)
+
+c_bin_iterarivo (int n; int k)
+{
+    if (k<o || n<k) trow ERR;
+    return fatt_iterativo(n) / (fatt_iterativo(k)*fatt_iterativo(n-k));
+}
+
+===DEFINIZIONE INDUTTIVA===
+(n)   (n)               BASE
+(k) = (0) = 1
+
+(n)   (n-1)   (n-1)
+(k) = (k-1) +  (k)      PASSO
+
+c_bin_ricorsivo (int n; int k)
+{
+    if (k<o || n<k) trow ERR;
+    if (k==o || n==k) return 1;
+
+    else
+    {
+        return c_bin_ricorsivo(n-1, k-1) + c_bin_ricorsivo(n-1, k);
+    }
+
+}
