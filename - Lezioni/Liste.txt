@@ -104,7 +104,7 @@ void insert(list &l; T x, int i)
     }
     if (cur==nullpntr) trow ERR_out_of_bound;
 
-    aux->info = x;
+    aux->info = x;        //    oppure *aux.info = x
     aux->next = cur;
     if (cur==l)
     {
