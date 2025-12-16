@@ -1,0 +1,51 @@
+esempio: ricerca per scansione sequenziale
+
+- se la lista è vuota ->false
+- se l'elemento è uguale al ptimo elemento della lista ->true
+- altrimenti cerco ricorsivamente nel resto della lista
+
+====CERCARE UN ELEMENTO IN UNA LISTA====
+
+bool is_in(const list &l, Tx)
+{
+    if (l==nullptr) return false; //base
+    if (l_info==x) return true;   //base
+    return is_in (l->next, x)
+}
+
+====CONTARE LA LUNGHEZZA DELLA LISTA====
+int length (const list&l)
+{
+    if (l==nullptr) return 0; //base
+    else
+    {
+        return length(l->next) + 1;
+    }
+}
+
+====INSERIMENTO DI UN ELEMENTO IN UNA LISTA ORDINATA====
+void insertElemInOrderAux(cell* aux, list & current, list& prev)
+{
+    if (current==nullptr || current->head > aux->head) //caso base
+    {
+        aux-next=current;
+        prev->next=aux;
+    }
+    else insertElemInOrder(aux, current->next, current)  //non sono ancora nel punto giusto: 
+                                                        richiamo ricorsivamente sulla coda della lista
+}
+
+void insertElemInOrder(const Elem x, list &s)
+{
+    cell*aux;
+    aux= new cell;
+    aux->info=x;
+    aux-> next=nullptr;
+
+    if (s==nullptr || s->info>x)
+    {
+        aux-> next = s,
+        s= aux;
+    }
+    else insertElemInOrderAux(aux, s->next, s);
+}

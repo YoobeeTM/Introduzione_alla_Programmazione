@@ -34,7 +34,7 @@ else
     combina le soluzioni
 }
 
-
+   
 ====CALCOLO DEL FATTORIALE====
 int fatt_iterativo (int n)
 {
